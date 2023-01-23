@@ -32,7 +32,7 @@
       }
       .grid {
         display: grid;
-        grid-template-columns: repeat(2, 300px);
+        grid-template-columns: repeat(2, 1fr);
         grid-gap: 10px;
       }
       h2 {
@@ -60,7 +60,7 @@
         display: block;
         margin: 0 auto;
         border: 1px solid #e1eaee;
-        background-color: white;
+        background-color: #e1eaee;
         font-size: 24px;
         padding: 10px 15px;
         border-radius: 6px;
@@ -92,10 +92,33 @@
       .fit {
         margin-top: 18px;
       }
+      .dark {
+        background: linear-gradient(
+          112.1deg,
+          rgb(32, 38, 57) 11.4%,
+          rgb(63, 76, 119) 70.2%
+        );
+        color: #e1eaee;
+      }
+
+      .dark .container {
+        background-color: #303c64;
+      }
+      .dark a {
+        color: #e1eaee;
+      }
+      .dark .theme {
+        background-color: #e1eaee;
+        color: black;
+      }
+      .dark .theme:hover {
+        background-color: black;
+        color: #e1eaee;
+      }
     </style>
   </head>
   <body>
-    <button class="theme">Dark Theme</button>
+    <button class="theme">Change Theme</button>
     <div class="container">
       <h1>Opticianry</h1>
       <div class="grid">
@@ -142,5 +165,13 @@
       >
     </div>
     <footer>Coded by Alexis Allison</footer>
+    <script>
+      function changeTheme() {
+        let body = document.querySelector("body");
+        body.classList.toggle("dark");
+      }
+      let themeButton = document.querySelector(".theme");
+      themeButton.addEventListener("click", changeTheme);
+    </script>
   </body>
 </html>
